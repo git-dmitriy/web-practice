@@ -1,58 +1,121 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Студия пилатеса</title>
-  </head>
-  <body>
-    <header>
-      <nav class="page-navigation">
-        <div class="page-navigation__logo">
-          <img class="page-navigation__logo-img" src="#" alt="" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Студия пилатеса</title>
+</head>
+
+<body>
+  <header>
+    <nav class="page-navigation">
+      <div class="page-navigation__logo">
+        <img class="page-navigation__logo-img" src="#" alt="" />
+      </div>
+
+      <div class="page-navigation__list">
+        <div class="page-navigation__item">
+          <a href="#" class="page-navigation__link">О нас</a>
         </div>
-
-        <div class="page-navigation__list">
-          <div class="page-navigation__item">
-            <a href="#" class="page-navigation__link">О нас</a>
-          </div>
-          <div class="page-navigation__item">
-            <a href="#" class="page-navigation__link">Расписание</a>
-          </div>
-          <div class="page-navigation__item">
-            <a href="#" class="page-navigation__link">Стоимость</a>
-          </div>
-          <div class="page-navigation__item">
-            <a href="#" class="page-navigation__link">Отзывы</a>
-          </div>
+        <div class="page-navigation__item">
+          <a href="#" class="page-navigation__link">Расписание</a>
         </div>
-        <a href="tel:+79183650707" class="page-navigation__phone"
-          >+7 918 365 07 07</a
-        >
-      </nav>
-    </header>
+        <div class="page-navigation__item">
+          <a href="#" class="page-navigation__link">Стоимость</a>
+        </div>
+        <div class="page-navigation__item">
+          <a href="#" class="page-navigation__link">Отзывы</a>
+        </div>
+      </div>
+      <a href="tel:+79183650707" class="page-navigation__phone">+7 918 365 07 07</a>
+    </nav>
+  </header>
 
-    <main>
-      <section class="timetable">
-        <h1 class="main-header">Студия пилатеса</h1>
-        <h2 class="timetable__heading visually-hidden">Расписание</h2>
-        <p class="timetable__tagline">
-          Твоё здоровое тело через 10 занятий
-        </p>
-        <a href="#" class="timetable__link">Смотреть расписание</a>
-      </section>
+  <main>
+    <section class="timetable">
+      <h1 class="main-heading">Студия пилатеса</h1>
+      <h2 class="timetable__heading visually-hidden">Расписание</h2>
+      <p class="timetable__tagline">
+        Твоё здоровое тело через 10 занятий
+      </p>
+      <a href="#" class="timetable__link">Смотреть расписание</a>
+    </section>
 
-      <section class="about-pilates">
-        <h2 class="about-pilates__heading">О пилатесе</h2>
-      </section>
-      <section class="rate">
-        <h2 class="rate__heading">Тарифы</h2>
-      </section>
-      <section class="reviews">
-        <h2 class="reviews_heading">Отзывы</h2>
-      </section>
-    </main>
+    <section class="about-pilates">
+      <h2 class="about-pilates__heading">О пилатесе</h2>
+      <p class="about-pilates__desc">
+        Пилатес соединяет элементы растяжки с элементами силовой тренировки <br>
+        Комплекс упражнений укрепляет мышцы пресса и спины, улучшает гибкость и связок, подвижность суставов и избавляет
+        от дискомфорта в позвоночнике
+      </p>
+      <a href="#" class="about-pilates__details"></a>
+    </section>
+    <section class="rate">
+      <h2 class="rate__heading">Тарифы</h2>
+      <ul class="rate__card-list">
+        <li class="rate__card-item">
+          <h3 class="rate__card-heading">уровень <span>новичок</span> </h3>
+          <div class="rate__card-price">150 руб. / занятие</div>
+          <a href="" class="rate__card-link">Записаться</a>
+        </li>
+        <li class="rate__card-item">
+          <h3 class="rate__card-heading">профи</h3>
+          <div class="rate__card-price">250 руб. / занятие</div>
+          <a href="" class="rate__card-link">записаться</a>
+        </li>
+        <li class="rate__card-item">
+          <h3 class="rate__card-heading">мастер</h3>
+          <div class="rate__card-price">350 руб. / занятие</div>
+          <a href="" class="rate__card-link">записаться</a>
+        </li>
+      </ul>
+    </section>
+    <section class="reviews">
+      <h2 class="reviews_heading">Отзывы</h2>
+      <ul class="reviews__list">
+        <li class="reviews__item">
+          <blockquote>
+            <cite>Вероника Кулешова</cite>
+            <p>25 лет</p>
+            <p>Хожу на пилатес уже пять месяцев. После десяти занятий уже увидела результат: тело подтянулось,
+              улучшилась осанка, появился пресс.
+              И самое главное, пропал сильный изгиб поясничного отдела, который меня очень беспокоил.
+            </p>
+          </blockquote>
+        </li>
+        <li class="reviews__item">
+          <blockquote>
+            <cite>Надежда Петрова</cite>
+            <p>23 года</p>
+            <p>Начала заниматься пилатесом по достаточно банальной причине - хотелось поддерживать хорошую форму, и не
+              ездить на занятия далеко от дома. Занятие пилатесом с инвентарем. Зал пилатеса был буквально через дорогу,
+              поэтому и записалась туда.
+            </p>
+          </blockquote>
+        </li>
+        <li class="reviews__item">
+          <blockquote>
+            <cite>Оксана Тодаренко</cite>
+            <p>19 лет</p>
+            <p>У меня был печальный опыт занятия пилатесом, связанный с некомпетентностью инструктора, который проводил
+              тренировки. Я занималась пилатесом 2 месяца, а потом забросила.
+            </p>
+          </blockquote>
+        </li>
+      </ul>
+    </section>
+  </main>
 
-    <footer></footer>
-  </body>
+  <footer>
+    <div class="copyright"> Pilates Plus, 2017 &copy;</div>
+    <div class="footer__logo"><img src="#" alt=""></div>
+    <ul class="footer__socials-list">
+      <li class="footer__socials-item"><img src="#" alt=""></li>
+      <li class="footer__socials-item"><img src="#" alt=""></li>
+      <li class="footer__socials-item"><img src="#" alt=""></li>
+    </ul>
+  </footer>
+</body>
+
 </html>
