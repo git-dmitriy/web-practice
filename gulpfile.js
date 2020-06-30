@@ -17,21 +17,39 @@ const sassGlob = require('gulp-sass-glob');
 
 const files = {
   stylesSrc: 'src/styles/main.scss',
-  htmlSrc: 'src/html'
+  htmlSrc: 'src/html',
+
+  normalize: 'node_modules/normalize.css/normalize.css',
+  swedishBitter_dist: 'flexbox/swedish-bitter/dist',
+  swedishBitter_src: 'flexbox/swedish-bitter/src',
+  swedishBitter_styles: 'flexbox/swedish-bitter/src/styles.scss'
+
+
 };
 
-const styles = [
-  'node_modules/normalize.css/normalize.css',
-  'src/styles/main.scss'
-];
+// const styles = [
+//   'node_modules/normalize.css/normalize.css',
+//   'src/styles/main.scss'
+// ];
+
+const swedishBitter = [
+  files.normalize,
+  'flexbox/swedish-bitter/src/style.scss'
+
+]
+
+
+
 
 task('styles', () => {
-  return src(styles)
+  return src(swedishBitter)
     .pipe(concat('main.scss'))
     .pipe(sassGlob())
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('./dist'));
+    .pipe(dest(files.swedishBitter_dist));
 });
+
+
 
 task('server', () => {
   browserSync.init({
