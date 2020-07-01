@@ -23,8 +23,10 @@ const files = {
 const swedishBitter = {
   src: 'flexbox/swedish-bitter/src',
   dist: 'flexbox/swedish-bitter/dist',
-  style: 'flexbox/swedish-bitter/src/style.scss',
-  html: 'flexbox/swedish-bitter/src/*.html'
+  style: 'flexbox/swedish-bitter/src/style/style.scss',
+  html: 'flexbox/swedish-bitter/src/*.html',
+  img: 'flexbox/swedish-bitter/src/img/*.*',
+  imgDist: 'flexbox/swedish-bitter/dist/img'
 }
 
 task('styles', () => {
@@ -58,7 +60,17 @@ task('copy:html', () => {
     }));
 });
 
+task('copy:img', () => {
+  return src(swedishBitter.img)
+  .pipe(dest(swedishBitter.imgDist))
+  .pipe(reload({
+    stream: true
+  }));
+});
+
+
 watch(swedishBitter.style, series('styles'));
 watch(swedishBitter.html, series('copy:html'));
+watch(swedishBitter.img, series('copy:img'));
 
-task('default', series('clean', 'copy:html', 'styles', 'server'));
+task('default', series('clean', 'copy:html', 'copy:img', 'styles', 'server'));
