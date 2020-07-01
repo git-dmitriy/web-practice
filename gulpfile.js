@@ -13,81 +13,52 @@ const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 const sassGlob = require('gulp-sass-glob');
 
-
-
 const files = {
   stylesSrc: 'src/styles/main.scss',
   htmlSrc: 'src/html',
-
-  normalize: 'node_modules/normalize.css/normalize.css',
-  swedishBitter_dist: 'flexbox/swedish-bitter/dist',
-  swedishBitter_src: 'flexbox/swedish-bitter/src',
-  swedishBitter_styles: 'flexbox/swedish-bitter/src/styles.scss'
-
+  normalize: 'node_modules/normalize.css/normalize.css'
 
 };
 
-// const styles = [
-//   'node_modules/normalize.css/normalize.css',
-//   'src/styles/main.scss'
-// ];
-
-const swedishBitter = [
-  files.normalize,
-  'flexbox/swedish-bitter/src/style.scss'
-
-]
-
-
-
+const swedishBitter = {
+  src: 'flexbox/swedish-bitter/src',
+  dist: 'flexbox/swedish-bitter/dist',
+  style: 'flexbox/swedish-bitter/src/style.scss',
+  html: 'flexbox/swedish-bitter/src/*.html'
+}
 
 task('styles', () => {
-  return src(swedishBitter)
+  return src([files.normalize, swedishBitter.style])
     .pipe(concat('main.scss'))
     .pipe(sassGlob())
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest(files.swedishBitter_dist));
+    .pipe(dest(swedishBitter.dist));
 });
-
-
 
 task('server', () => {
   browserSync.init({
     server: {
-      baseDir: "./dist"
+      baseDir: swedishBitter.dist
     },
     open: false
   });
 });
 
 task('clean', () => {
-  return src('dist/**/*', {
+  return src(swedishBitter.dist, {
     read: false
   }).pipe(rm());
 });
 
 task('copy:html', () => {
-  return src('src/*.html')
-    .pipe(dest('dist'))
+  return src(swedishBitter.html)
+    .pipe(dest(swedishBitter.dist))
     .pipe(reload({
       stream: true
     }));
 });
 
-watch('./src/styles/**/*.scss', series('styles'));
-watch('./src/*.html', series('copy:html'));
+watch(swedishBitter.style, series('styles'));
+watch(swedishBitter.html, series('copy:html'));
 
 task('default', series('clean', 'copy:html', 'styles', 'server'));
-
-
-// Массив строк
-// const files = [
-//   'src/styles/one.scss',
-//   'src/styles/two.scss'
-// ]
-
-// ! - восклицательный знак указывает на файл исключение
-// const files = [
-//   'src/styles/*.scss',
-//   '!src/styles/two.scss'
-// ]
