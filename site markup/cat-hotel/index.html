@@ -79,6 +79,41 @@
 
     <section class="room-reservation">
 
+      <h2>Номера</h2>
+      <section class="room-reservation-description">
+        <h3 class="room-reservation-description__heading">Эконом плюс</h3>
+        <dl class="room-reservation-description__list">
+          <dt>Площадь - </dt>
+          <dd>0,90м<sup>2</sup></dd>
+          <dt>Размеры (ШхГхВ) - </dt>
+          <dd>90х100х120 см</dd>
+          <dt>Цена за сутки:</dt>
+          <dd>200&#8381;</dd>
+        </dl>
+      </section>
+
+      <section class="reservation-form">
+        <h3 class="reservation-form__heading">Забронировать номер</h3>
+        <form action="#" method="POST" class="reservation-form__form">
+          <label for="reservation-form__name" class="visually-hidden"></label>
+          <input type="text" name="reservation-form__name" id="reservation-form__name" placeholder="Ваше имя">
+          <label for="reservation-form__pet" class="visually-hidden">Имя Питомца</label>
+          <input type="text" name="reservation-form__pet" id="reservation-form__pet" placeholder="Имя Питомца">
+          <label for="reservation-form__phone" class="visually-hidden">Телефон</label>
+          <input type="tel" name="reservation-form__phone" id="reservation-form__phone" placeholder="Телефон">
+          <label for="reservation-form__email" class="visually-hidden">E-mail</label>
+          <input type="email" name="reservation-form__email" id="reservation-form__email" placeholder="E-mail">
+          <p>
+            <label for="reservation-form-begin__date">Дата заезда с</label>
+            <input type="text" name="reservation-form__begin-date" id="reservation-form__begin-date"
+              placeholder="12.07.2020">
+            <label for="reservation-form__end-date">по</label>
+            <input type="text" name="reservation-form__end-date" id="reservation-form__end-date"
+              placeholder="30.07.2020">
+          </p>
+          <button type="submit">Отправить заявку</button>
+        </form>
+      </section>
     </section>
 
 
