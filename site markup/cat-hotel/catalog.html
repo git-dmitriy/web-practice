@@ -28,6 +28,55 @@
     <section class="filters">
       <h2 class="visually-hidden">Фильтры</h2>
 
+      <form id="filters-form" class="filters-form" action="#" method="get">
+
+        <fieldset>
+          <legend>Цена за сутки, <span>₽</span></legend>
+
+          <label for="filters-form__price-from" class="visually-hidden">Цена за сутки, от</label>
+          <input type="text" name="filters-form__price-from" id="filters-form__price-from" placeholder="от 100"
+            value="100">
+
+          <label for="filters-form__price-to" class="visually-hidden">Цена за сутки, до</label>
+          <input type="text" name="filters-form__price-to" id="filters-form__price-to" placeholder="до 600" value="600">
+        </fieldset>
+
+        <fieldset>
+          <legend>Площадь</legend>
+          <label for="filters-form-area__value-1">0,63 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-1" checked value="0.63">
+          <label for="filters-form-area__value-2">0,90 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-2" checked value="0.90">
+          <label for="filters-form-area__value-3">1,13 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-3" checked value="1.13">
+          <label for="filters-form-area__value-4">1,56 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-4" checked value="1.56">
+          <label for="filters-form-area__value-5">2,56 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-5" checked value="2.56">
+          <label for="filters-form-area__value-6">2,88 м2</label>
+          <input type="checkbox" name="filters-form-area" id="filters-form-area__value-6" checked value="2.88">
+        </fieldset>
+        <fieldset>
+          <legend>Оснащение номера</legend>
+          <label for="filters-form-equipment__value-empty">Пустой номер</label>
+          <input type="checkbox" name="filters-form-equipment" id="filters-form-equipment__value-empty" checked
+            value="empty">
+          <label for="filters-form-equipment__value-sofa">Лежак</label>
+          <input type="checkbox" name="filters-form-equipment" id="filters-form-equipment__value-sofa" checked
+            value="sofa">
+          <label for="filters-form-equipment__value-car-tree">Когтеточка</label>
+          <input type="checkbox" name="filters-form-equipment" id="filters-form-equipment__value-car-tree" checked
+            value="car-tree">
+          <label for="filters-form-equipment__value-toy">Игровой-комплекс</label>
+          <input type="checkbox" name="filters-form-equipment" id="filters-form-equipment__value-toy" checked
+            value="toy">
+          <label for="filters-form-equipment__value-house">Домик</label>
+          <input type="checkbox" name="filters-form-equipment" id="filters-form-equipment__value-house" checked
+            value="house">
+        </fieldset>
+        <button type="reset">Сбросить фильтр</button>
+      </form>
+
     </section>
     <section class="catalog">
       <h2 class="visually-hidden">Каталог</h2>
