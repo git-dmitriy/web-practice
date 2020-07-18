@@ -23,18 +23,27 @@ const files = {
 const swedishBitter = {
   src: 'flexbox/swedish-bitter/src',
   dist: 'flexbox/swedish-bitter/dist',
-  style: 'flexbox/swedish-bitter/src/style/style.scss',
+  distClean: 'flexbox/swedish-bitter/dist/**/*',
+  styleSrc: 'flexbox/swedish-bitter/src/style/style.scss',
+  styleDist: 'flexbox/swedish-bitter/dist/css',
   html: 'flexbox/swedish-bitter/src/*.html',
   img: 'flexbox/swedish-bitter/src/img/*.*',
-  imgDist: 'flexbox/swedish-bitter/dist/img'
+  imgDist: 'flexbox/swedish-bitter/dist/img',
+  fonts: 'flexbox/swedish-bitter/src/fonts/**/*',
+  fontsDist: 'flexbox/swedish-bitter/dist/fonts'
 }
 
 task('styles', () => {
-  return src([files.normalize, swedishBitter.style])
+  return src([files.normalize, swedishBitter.styleSrc], {
+      allowEmpty: true
+    })
     .pipe(concat('main.scss'))
     .pipe(sassGlob())
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest(swedishBitter.dist));
+    .pipe(reload({
+      stream: true
+    }))
+    .pipe(dest(swedishBitter.styleDist));
 });
 
 task('server', () => {
@@ -47,8 +56,9 @@ task('server', () => {
 });
 
 task('clean', () => {
-  return src(swedishBitter.dist, {
-    read: false
+  return src(swedishBitter.distClean, {
+    read: false,
+    allowEmpty: true
   }).pipe(rm());
 });
 
@@ -60,17 +70,22 @@ task('copy:html', () => {
     }));
 });
 
+task('copy:fonts', () => {
+  return src(swedishBitter.fonts)
+    .pipe(dest(swedishBitter.fontsDist));
+})
+
 task('copy:img', () => {
   return src(swedishBitter.img)
-  .pipe(dest(swedishBitter.imgDist))
-  .pipe(reload({
-    stream: true
-  }));
+    .pipe(dest(swedishBitter.imgDist))
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 
-watch(swedishBitter.style, series('styles'));
+watch(swedishBitter.styleSrc, series('styles'));
 watch(swedishBitter.html, series('copy:html'));
 watch(swedishBitter.img, series('copy:img'));
 
-task('default', series('clean', 'copy:html', 'copy:img', 'styles', 'server'));
+task('default', series('clean', 'copy:html', 'copy:img', 'copy:fonts', 'styles', 'server'));
