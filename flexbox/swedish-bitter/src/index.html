@@ -3,26 +3,31 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <base href="https://assets.htmlacademy.ru/content/skills/3/case-02/">
-  <link href="style.css" rel="stylesheet">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
+  <link href="css/main.css" rel="stylesheet">
   <title>Swedish Bitter</title>
 </head>
 
 <body>
-  <header class="main-header">
+  <header class="main-header container">
+
+
     <a class="main-header-logo">
-      <img src="img/logo.svg" width="198" height="29" alt="Логотип сайта">
+      <img src="img/logo.png" width="198" height="29" alt="Логотип сайта">
     </a>
     <p class="main-header-delivery">Доставка по всей России</p>
-    <a class="main-header-phone" href="tel:88000000000">8 800 000-00-00</a>
-    <p class="main-header-phone-text">Звонок бесплатный</p>
+    <div class="main-header-phone-column">
+      <a class="main-header-phone" href="tel:88000000000">8 800 000-00-00</a>
+      <p class="main-header-phone-text">Звонок бесплатный</p>
+    </div>
+
   </header>
   <main>
     <h1 class="visually-hidden">Бальзам «Swedish bitter»</h1>
     <section class="promo">
       <h2 class="visually-hidden">Уникальные свойства бальзама</h2>
-      <img src="img/swedish-bitter.png" width="298" height="648" alt="Swedish bitter">
+      <img src="img/packaging.png" width="298" height="648" alt="Swedish bitter">
       <p class="promo-text"><span class="promo-text-uppercase">Бальзам</span> <br> <span class="promo-text-big">«Swedish
           bitter»</span>
       </p>
@@ -63,7 +68,7 @@
         <li class="symptoms-item">Синяки, шишки, ожоги, порезы долго не проходят</li>
         <li class="symptoms-item">Плохо засыпаете и часто просыпаетесь</li>
       </ul>
-      <img src="img/human.png" width="500" height="689" alt="Строение человека">
+      <img src="img/secret-of-success.jpg" width="875" alt="Строение человека">
       <a class="button" href="#">Избавиться от проблем</a>
     </section>
     <section class="success-secret">
@@ -86,35 +91,41 @@
     <section class="set">
       <h2 class="set-title">Что вы получите вместе с бальзамом «Swedish Bitter»?</h2>
       <ul class="set-list">
-        <li class="set-item">сбор трав</li>
-        <li class="set-item">инструкция по применению</li>
-        <li class="set-item">сертификат качества</li>
+        <li class="set-item">
+          <img class='set-item-img' src="img/set-img-1.png" alt="">
+          сбор трав</li>
+        <li class="set-item">
+          <img class='set-item-img' src="img/set-img-2.png" alt="">
+          инструкция по применению</li>
+        <li class="set-item">
+          <img class='set-item-img' src="img/set-img-3.png" alt="">
+          сертификат качества</li>
       </ul>
     </section>
     <section class="ingredients">
       <ul class="ingredients-list">
         <li class="ingredients-item">
-          <img src="img/pic21.png" width="270" height="270" alt="Angelica archangelica">
+          <img src="img/ingredients-1.png" width="270" height="270" alt="Angelica archangelica">
           <p lang="la">Angelica archangelica</p>
           <p>Корень дягиля (дудника) лекарственного</p>
         </li>
         <li class="ingredients-item">
-          <img src="img/pic22.png" width="270" height="270" alt="Carlina acaulis">
+          <img src="img/ingredients-2.png" width="270" height="270" alt="Carlina acaulis">
           <p lang="la">Carlina acaulis</p>
           <p>Колючник бесстебельный</p>
         </li>
         <li class="ingredients-item">
-          <img src="img/pic23.png" width="270" height="270" alt="Cunnamomum camphora">
+          <img src="img/ingredients-3.png" width="270" height="270" alt="Cunnamomum camphora">
           <p lang="la">Cunnamomum camphora</p>
           <p>Натуральная камфора</p>
         </li>
         <li class="ingredients-item">
-          <img src="img/pic24.png" width="270" height="270" alt="Fraxinus ornus">
+          <img src="img/ingredients-4.png" width="270" height="270" alt="Fraxinus ornus">
           <p lang="la">Fraxinus ornus</p>
           <p>Высушенный сок из ствола ясеня манного</p>
         </li>
         <li class="ingredients-item">
-          <img src="img/pic25.png" width="270" height="270" alt="Cammiphora molmol">
+          <img src="img/ingredients-5.png" width="270" height="270" alt="Cammiphora molmol">
           <p lang="la">Cammiphora molmol</p>
           <p>Мирра горькая</p>
         </li>
@@ -145,12 +156,12 @@
         близким.</p>
       <p>К каждой упаковке бальзама «Swedish Bitter» мы прикладываем немецкий сертификат качества.</p>
       <a class="button" href="#">Заказать бальзам</a>
-      <img src="img/certificate.png" width="416" height="644" alt="Сертификат">
+      <img src="img/certificate.jpg" width="416" height="644" alt="Сертификат">
     </section>
   </main>
   <footer class="main-footer">
     <a class="main-footer-logo">
-      <img src="img/logo.svg" width="198" height="29" alt="Логотип сайта">
+      <img src="img/logo.png" width="198" height="29" alt="Логотип сайта">
     </a>
     <ul class="main-footer-links">
       <li class="main-footer-links-item"><a class="main-footer-link" href="#">Политика конфиденциальности</a></li>
