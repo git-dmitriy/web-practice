@@ -17,7 +17,8 @@ const swedishBitter = {
   src: "flexbox/swedish-bitter/src",
   dist: "flexbox/swedish-bitter/dist",
   distClean: "flexbox/swedish-bitter/dist/**/*",
-  styleSrc: "flexbox/swedish-bitter/src/style/**/*.scss",
+  styleSrc: "flexbox/swedish-bitter/src/style/style.scss",
+  styleWatch: "flexbox/swedish-bitter/src/style/**/*.*",
   styleDist: "flexbox/swedish-bitter/dist/css",
   html: "flexbox/swedish-bitter/src/*.html",
   img: "flexbox/swedish-bitter/src/img/*.*",
@@ -49,6 +50,7 @@ task("server", () => {
         extensions: ["html"],
       },
     },
+    open: false,
   });
 });
 
@@ -83,7 +85,7 @@ task("copy:img", () => {
     );
 });
 
-watch(swedishBitter.styleSrc, series("styles"));
+watch(swedishBitter.styleWatch, series("styles"));
 watch(swedishBitter.html, series("copy:html"));
 watch(swedishBitter.img, series("copy:img"));
 
