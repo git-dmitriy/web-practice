@@ -1,0 +1,26 @@
+.button {
+  padding: 15px 140px;
+  display: inline-block;
+  background-color: $green;
+  color: $white;
+  text-decoration: none;
+  font-family: "Montserrat-Bold";
+  font-size: 14px;
+  text-align: center;
+
+  &::after {
+    content: "";
+    width: 30px;
+    height: 9px;
+    display: inline-block;
+    margin-left: 20px;
+    transition: 0.2s;
+    background-image: url("../../img/button-arrow.png");
+  }
+  &:hover {
+    text-decoration: none;
+  }
+  &:hover::after {
+    transform: translateX(10px);
+  }
+}
