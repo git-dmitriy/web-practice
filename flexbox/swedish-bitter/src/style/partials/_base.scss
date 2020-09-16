@@ -37,3 +37,40 @@
     font-family: "Montserrat-Regular";
   }
 }
+
+.promo {
+  background-image: url("../../img/promo-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 93px;
+  & .container {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &-img-col {
+  }
+  &-text-col {
+    width: 570px;
+    padding-top: 58px;
+  }
+  &-text {
+    font-family: "Montserrat-Regular";
+    font-size: 18px;
+    color: $white;
+  }
+  &-text-uppercase {
+    font-family: "Montserrat-Bold";
+    font-size: 14px;
+    display: block;
+  }
+  &-text-big {
+    font-family: "Montserrat-SemiBold";
+    font-size: 60px;
+    display: block;
+    margin-bottom: 64px;
+  }
+  &-text:nth-child(2) {
+    margin-bottom: 210px;
+  }
+}
