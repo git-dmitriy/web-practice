@@ -35,6 +35,7 @@
     margin: 0;
     color: $gray;
     font-family: "Montserrat-Regular";
+    font-size: 12px;
   }
 }
 
@@ -47,10 +48,11 @@
 
   & .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   &-img-col {
+    margin-left: 130px;
   }
   &-text-col {
     width: 570px;
@@ -64,16 +66,24 @@
   &-text-uppercase {
     font-family: "Montserrat-Bold";
     font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     display: block;
+    margin-bottom: 10px;
   }
   &-text-big {
     font-family: "Montserrat-SemiBold";
     font-size: 60px;
     display: block;
-    margin-bottom: 64px;
+    margin-bottom: 54px;
   }
   &-text:nth-child(2) {
     margin-bottom: 210px;
+  }
+  & .button {
+    max-width: 500px;
+    position: relative;
+    left: 70px;
   }
 }
 
@@ -81,12 +91,12 @@
   &-list {
     display: flex;
     justify-content: space-around;
-    padding-top: 34px;
   }
   &-item {
     width: 270px;
-    margin-left: 55px;
+    margin-left: 70px;
     position: relative;
+    padding-top: 43px;
   }
 
   &-item::before {
@@ -94,20 +104,23 @@
     position: absolute;
     width: 25px;
     height: 25px;
-    top: -35px;
-    left: -25px;
+    top: 8px;
+    left: -36px;
     box-sizing: border-box;
     border: 5px solid lighten($green, 20%);
     border-radius: 50%;
   }
 
+  .item-indicator-number {
+    font-size: 30px;
+  }
   .item-indicator {
     display: inline-block;
     color: lighten($green, 10%);
     font-family: "Montserrat-SemiBold";
-    font-size: 30px;
+    font-size: 18px;
     border-bottom: 3px solid lighten($green, 10%);
-    padding-bottom: 10px;
+    padding-bottom: 3px;
     margin-bottom: 22px;
   }
   .item-description {
@@ -116,5 +129,6 @@
     font-family: "Montserrat-Regular";
     font-size: 16px;
     line-height: 24px;
+    letter-spacing: 0.1px;
   }
 }

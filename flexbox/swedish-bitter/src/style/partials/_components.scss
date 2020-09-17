@@ -1,12 +1,15 @@
 .button {
-  padding: 15px 140px;
+  padding: 20px 80px;
   display: inline-block;
   background-color: $green;
   color: $white;
   text-decoration: none;
   font-family: "Montserrat-Bold";
   font-size: 14px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
   text-align: center;
+  width: 100%;
 
   &::after {
     content: "";
