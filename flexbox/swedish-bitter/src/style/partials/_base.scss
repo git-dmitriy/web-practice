@@ -132,3 +132,138 @@
     letter-spacing: 0.1px;
   }
 }
+
+.symptoms {
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-list-col {
+  }
+  &-img-col {
+    max-width: 500px;
+  }
+  &-title {
+  }
+  &-list {
+  }
+  &-item {
+  }
+
+  &.button {
+  }
+}
+
+.success-secret {
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-secret-button-col {
+  }
+  &-secret-text {
+  }
+
+  &-secret-title {
+  }
+  &-secret-list-title {
+  }
+  &-secret-list {
+  }
+  &-secret-list-col {
+  }
+
+  & .button {
+  }
+}
+
+.set {
+  & .container {
+  }
+
+  &-title {
+  }
+  &-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+  }
+  &-item {
+    max-width: 200px;
+  }
+  &-item-img {
+  }
+}
+
+.ingredients {
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-cards-col {
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+  &-item {
+  }
+  &-list-col {
+  }
+  &-title {
+  }
+  &-description {
+  }
+
+  & .button {
+  }
+}
+
+.warranty {
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-text-col {
+  }
+
+  &-img-col {
+  }
+
+  &-title {
+  }
+
+  & .button {
+  }
+}
+
+.main-footer {
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-logo {
+  }
+  &-links {
+    list-style: none;
+    padding: 0;
+    max-width: 630px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-links-item {
+  }
+  &-link {
+  }
+  &-phone-col {
+  }
+  &-phone {
+  }
+  &-phone-text {
+  }
+}
