@@ -88,6 +88,7 @@
 }
 
 .statistics {
+  margin-bottom: 200px;
   &-list {
     display: flex;
     justify-content: space-around;
@@ -137,20 +138,67 @@
   & .container {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 205px;
   }
-  &-list-col {
-  }
-  &-img-col {
-    max-width: 500px;
-  }
+
   &-title {
+    font-family: "Montserrat-bold";
+    font-size: 40px;
+    line-height: 50px;
+    color: $black;
+    margin-bottom: 45px;
   }
   &-list {
+    list-style: none;
   }
   &-item {
+    font: {
+      family: "Montserrat-SemiBold";
+      size: 14px;
+    }
+    line-height: 21px;
+    position: relative;
+    padding: 23px 0;
+    border-bottom: 2px solid lighten($green, 30%);
+    text-transform: uppercase;
+  }
+  &-item::after {
+    content: "˃";
+    color: transparent;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+  }
+
+  &-item:hover::after {
+    color: lighten($green, 10%);
+  }
+
+  @for $i from 1 through 7 {
+    &-item:nth-child(#{$i})::before {
+      content: "0#{$i}.";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -37px;
+      color: $green;
+    }
   }
 
   &.button {
+  }
+
+  &-img-col {
+    max-width: 500px;
+  }
+  &-img img {
+    width: 100%;
+  }
+  &-img {
+    width: 500px;
+    margin-bottom: 46px;
   }
 }
 
