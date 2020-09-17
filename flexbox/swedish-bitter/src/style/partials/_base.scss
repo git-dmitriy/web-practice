@@ -135,6 +135,17 @@
 }
 
 .symptoms {
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 85px;
+    right: 0;
+    left: 0;
+    top: 170px;
+    background-color: lighten($green, 42%);
+    z-index: -1;
+  }
   & .container {
     display: flex;
     justify-content: space-between;
