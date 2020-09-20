@@ -397,19 +397,103 @@
   }
 
   &-cards-col {
+    width: 570px;
   }
   &-list {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
+    padding: 0;
+    margin-right: -10px;
   }
   &-item {
+    width: 270px;
+    background-color: $card_bg;
+    margin: 10px;
+    position: relative;
+    & p:nth-child(3) {
+      display: none;
+    }
+    & p[lang="la"] {
+      position: absolute;
+      top: unset;
+      right: 16px;
+      bottom: 16px;
+      color: $green;
+      font: 14px/24px "Montserrat-Regular";
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      margin: 0;
+    }
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i})::before {
+        content: "— 0#{$i}";
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        font-family: "Montserrat-Bold";
+        font-size: 14px;
+        line-height: 24px;
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+        color: $green;
+      }
+    }
+    &:hover p:nth-child(3) {
+      position: absolute;
+      content: "";
+      top: 16px;
+      left: 16px;
+      bottom: 16px;
+      right: 16px;
+      background-color: rgba($green, 0.8);
+      font-family: "Montserrat-Bold";
+      font-size: 14px;
+      line-height: 20px;
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
+
   &-list-col {
+    max-width: 570px;
+    width: 100%;
+    color: $black;
   }
   &-title {
+    font: {
+      family: "Montserrat-Bold";
+      size: 40px;
+    }
+    line-height: 50px;
   }
   &-description {
+    font: {
+      family: "Montserrat-Regular";
+      size: 16px;
+    }
+    line-height: 22px;
+    list-style: none;
+
+    & li {
+      position: relative;
+    }
+    & li::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -20px;
+      width: 7px;
+      height: 7px;
+      background-color: $green;
+      border-radius: 50%;
+    }
   }
 
   & .button {
@@ -449,10 +533,13 @@
     max-width: 630px;
     display: flex;
     justify-content: space-between;
+    margin-right: -20px;
   }
   &-links-item {
+    margin-right: 20px;
   }
   &-link {
+    // display: block;
   }
   &-phone-col {
   }
