@@ -310,8 +310,8 @@
 
 .set {
   position: relative;
-  padding-bottom: 100px;
-  margin-bottom: 140px;
+  padding-bottom: 55px;
+  margin-bottom: 168px;
   &::after {
     content: "";
     position: absolute;
@@ -391,6 +391,7 @@
 }
 
 .ingredients {
+  margin-bottom: 242px;
   & .container {
     display: flex;
     justify-content: space-between;
@@ -398,6 +399,7 @@
 
   &-cards-col {
     width: 570px;
+    padding-top: 75px;
   }
   &-list {
     display: flex;
@@ -443,51 +445,63 @@
     &:hover p:nth-child(3) {
       position: absolute;
       content: "";
+      @include font(14px, 20px, "Montserrat-Bold");
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
       top: 16px;
       left: 16px;
       bottom: 16px;
       right: 16px;
-      background-color: rgba($green, 0.8);
-      font-family: "Montserrat-Bold";
-      font-size: 14px;
-      line-height: 20px;
-      text-align: center;
-      vertical-align: middle;
-      color: #fff;
+      background: radial-gradient(rgba($green, 0.7), lighten($green, 10%));
       margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      z-index: 1;
+    }
+    &-secret {
+      @include font(14px, 22px, "Montserrat-Bold");
+      text-transform: uppercase;
+      color: $black;
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+    &:last-child::after {
+      content: "?";
+      position: absolute;
+      top: 130px;
+      left: 67px;
+      z-index: 0;
+      @include font(250px, 22px, "Montserrat-Bold");
+      color: lighten($green, 20%);
     }
   }
 
   &-list-col {
-    max-width: 570px;
+    max-width: 520px;
     width: 100%;
     color: $black;
   }
   &-title {
-    font: {
-      family: "Montserrat-Bold";
-      size: 40px;
-    }
-    line-height: 50px;
+    @include font(40px, 50px, "Montserrat-Bold");
+    margin-bottom: 48px;
   }
   &-description {
-    font: {
-      family: "Montserrat-Regular";
-      size: 16px;
-    }
-    line-height: 22px;
+    @include font(16px, 22px, "Montserrat-Regular");
     list-style: none;
+    margin-bottom: 386px;
 
     & li {
       position: relative;
+      margin-bottom: 34px;
     }
     & li::before {
       content: "";
       position: absolute;
-      top: 0;
+      top: 5px;
       left: -20px;
       width: 7px;
       height: 7px;
@@ -497,6 +511,9 @@
   }
 
   & .button {
+    width: 350px;
+    position: relative;
+    left: 169px;
   }
 }
 
