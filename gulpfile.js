@@ -7,28 +7,36 @@ const browserSync = require("browser-sync").create();
 const reload = browserSync.reload;
 const sassGlob = require("gulp-sass-glob");
 
-const files = {
-  stylesSrc: "src/styles/main.scss",
-  htmlSrc: "src/html",
+const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
 };
 
-const swedishBitter = {
-  src: "flexbox/swedish-bitter/src",
-  dist: "flexbox/swedish-bitter/dist",
-  distClean: "flexbox/swedish-bitter/dist/**/*",
-  styleSrc: "flexbox/swedish-bitter/src/style/style.scss",
-  styleWatch: "flexbox/swedish-bitter/src/style/**/*.*",
-  styleDist: "flexbox/swedish-bitter/dist/css",
-  html: "flexbox/swedish-bitter/src/*.html",
-  img: "flexbox/swedish-bitter/src/img/*.*",
-  imgDist: "flexbox/swedish-bitter/dist/img",
-  fonts: "flexbox/swedish-bitter/src/fonts/**/*",
-  fontsDist: "flexbox/swedish-bitter/dist/fonts",
+/*
+  * Projects list:
+    denim
+    swedish-bitter
+
+
+*/
+
+const projectName = "swedish-bitter";
+
+const project = {
+  src: `flexbox/${projectName}/src`,
+  dist: `flexbox/${projectName}/dist`,
+  distClean: `flexbox/${projectName}/dist/**/*`,
+  styleSrc: `flexbox/${projectName}/src/style/style.scss`,
+  styleWatch: `flexbox/${projectName}/src/style/**/*.*`,
+  styleDist: `flexbox/${projectName}/dist/css`,
+  html: `flexbox/${projectName}/src/*.html`,
+  img: `flexbox/${projectName}/src/img/*.*`,
+  imgDist: `flexbox/${projectName}/dist/img`,
+  fonts: `flexbox/${projectName}/src/fonts/**/*`,
+  fontsDist: `flexbox/${projectName}/dist/fonts`,
 };
 
 task("styles", () => {
-  return src([files.normalize, swedishBitter.styleSrc], {
+  return src([externalFiles.normalize, project.styleSrc], {
     allowEmpty: true,
   })
     .pipe(concat("main.scss"))
@@ -39,13 +47,13 @@ task("styles", () => {
         stream: true,
       })
     )
-    .pipe(dest(swedishBitter.styleDist));
+    .pipe(dest(project.styleDist));
 });
 
 task("server", () => {
   browserSync.init({
     server: {
-      baseDir: swedishBitter.dist,
+      baseDir: project.dist,
       serveStaticOptions: {
         extensions: ["html"],
       },
@@ -55,15 +63,15 @@ task("server", () => {
 });
 
 task("clean", () => {
-  return src(swedishBitter.distClean, {
+  return src(project.distClean, {
     read: false,
     allowEmpty: true,
   }).pipe(rm());
 });
 
 task("copy:html", () => {
-  return src(swedishBitter.html)
-    .pipe(dest(swedishBitter.dist))
+  return src(project.html)
+    .pipe(dest(project.dist))
     .pipe(
       reload({
         stream: true,
@@ -72,12 +80,12 @@ task("copy:html", () => {
 });
 
 task("copy:fonts", () => {
-  return src(swedishBitter.fonts).pipe(dest(swedishBitter.fontsDist));
+  return src(project.fonts).pipe(dest(project.fontsDist));
 });
 
 task("copy:img", () => {
-  return src(swedishBitter.img)
-    .pipe(dest(swedishBitter.imgDist))
+  return src(project.img)
+    .pipe(dest(project.imgDist))
     .pipe(
       reload({
         stream: true,
@@ -85,9 +93,9 @@ task("copy:img", () => {
     );
 });
 
-watch(swedishBitter.styleWatch, series("styles"));
-watch(swedishBitter.html, series("copy:html"));
-watch(swedishBitter.img, series("copy:img"));
+watch(project.styleWatch, series("styles"));
+watch(project.html, series("copy:html"));
+watch(project.img, series("copy:img"));
 
 task(
   "default",
