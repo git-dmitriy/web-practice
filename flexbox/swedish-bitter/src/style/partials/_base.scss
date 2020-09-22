@@ -604,7 +604,9 @@
 .main-footer {
   & .container {
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    min-height: 100px;
   }
 
   &-logo {
@@ -612,21 +614,84 @@
   &-links {
     list-style: none;
     padding: 0;
-    max-width: 630px;
+
     display: flex;
     justify-content: space-between;
-    margin-right: -20px;
+    margin-right: -60px;
   }
   &-links-item {
-    margin-right: 20px;
   }
   &-link {
-    // display: block;
+    @include font(12px, 12px, "Montserrat-Regular");
+    color: $gray;
+    text-decoration: underline;
+    margin-right: 55px;
   }
   &-phone-col {
+    text-align: right;
   }
   &-phone {
+    color: $black;
+    text-decoration: none;
+    font-family: "Montserrat-Medium";
+    font-size: 20px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: inherit;
+      margin-right: 11px;
+      background-image: url("../../img/telephone-icon.jpg");
+    }
   }
   &-phone-text {
+    margin: 0;
+    color: $gray;
+    font-family: "Montserrat-Regular";
+    font-size: 12px;
   }
 }
+
+/*
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  min-height: 100px;
+  &-logo {
+    margin-right: 28px;
+  }
+  &-delivery {
+    font-size: 16px;
+    color: $gray;
+  }
+  &-phone-column {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  &-phone {
+    color: $black;
+    text-decoration: none;
+    font-family: "Montserrat-Medium";
+    font-size: 20px;
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: inherit;
+      margin-right: 11px;
+      background-image: url("../../img/telephone-icon.jpg");
+    }
+  }
+
+  &-phone-text {
+    margin: 0;
+    color: $gray;
+    font-family: "Montserrat-Regular";
+    font-size: 12px;
+  }
+
+*/
