@@ -1,0 +1,81 @@
+.set {
+  position: relative;
+  padding-bottom: 55px;
+  margin-bottom: 168px;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 245px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: lighten($green, 45%);
+    z-index: -1;
+  }
+  & .container {
+  }
+
+  &-title {
+    font: {
+      family: "Montserrat-Bold";
+      size: 40px;
+    }
+    line-height: 50px;
+    margin-bottom: 45px;
+  }
+
+  &-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    padding: 0 15px 30px 15px;
+
+    background-color: $white;
+  }
+
+  &-item {
+    max-width: 370px;
+    max-height: 330px;
+    width: 100%;
+    height: 330px;
+    border: 1px solid lighten($green, 40%);
+
+    text-align: center;
+    font: {
+      family: "Montserrat-Bold";
+      size: 14px;
+    }
+    line-height: 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  @for $i from 1 through 7 {
+    &-item:nth-child(#{$i})::after {
+      content: "0#{$i}";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      font: {
+        family: "Montserrat-Black";
+        size: 150px;
+      }
+      line-height: 290px;
+      color: lighten($green, 45%);
+      z-index: -1;
+    }
+  }
+
+  &-item-img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+}

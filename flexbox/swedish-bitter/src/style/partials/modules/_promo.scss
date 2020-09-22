@@ -1,0 +1,47 @@
+.promo {
+  background-image: url(../../img/promo-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  padding-top: 93px;
+  margin-bottom: 86px;
+
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-img-col {
+    margin-left: 130px;
+  }
+  &-text-col {
+    width: 570px;
+    padding-top: 58px;
+  }
+  &-text {
+    font-family: "Montserrat-Regular";
+    font-size: 18px;
+    color: $white;
+  }
+  &-text-uppercase {
+    font-family: "Montserrat-Bold";
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+  }
+  &-text-big {
+    font-family: "Montserrat-SemiBold";
+    font-size: 60px;
+    display: block;
+    margin-bottom: 54px;
+  }
+  &-text:nth-child(2) {
+    margin-bottom: 210px;
+  }
+  & .button {
+    max-width: 500px;
+    position: relative;
+    left: 70px;
+  }
+}

@@ -1,0 +1,46 @@
+.statistics {
+  margin-bottom: 200px;
+  &-list {
+    display: flex;
+    justify-content: space-around;
+  }
+  &-item {
+    width: 270px;
+    margin-left: 70px;
+    position: relative;
+    padding-top: 43px;
+  }
+
+  &-item::before {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 8px;
+    left: -36px;
+    box-sizing: border-box;
+    border: 5px solid lighten($green, 20%);
+    border-radius: 50%;
+  }
+
+  .item-indicator-number {
+    font-size: 30px;
+  }
+  .item-indicator {
+    display: inline-block;
+    color: lighten($green, 10%);
+    font-family: "Montserrat-SemiBold";
+    font-size: 18px;
+    border-bottom: 3px solid lighten($green, 10%);
+    padding-bottom: 3px;
+    margin-bottom: 22px;
+  }
+  .item-description {
+    margin: 0;
+    color: darken($black, 100%);
+    font-family: "Montserrat-Regular";
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+  }
+}

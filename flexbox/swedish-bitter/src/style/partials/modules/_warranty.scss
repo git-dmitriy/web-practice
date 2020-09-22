@@ -1,0 +1,83 @@
+.warranty {
+  position: relative;
+  padding-bottom: 95px;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 180px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background-color: lighten($green, 45%);
+  }
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-text-col {
+    color: $black;
+    padding-top: 88px;
+  }
+
+  &-img-col {
+    margin-right: 30px;
+  }
+
+  &-title {
+    @include font(40px, 50px, "Montserrat-bold");
+    margin-top: 0;
+    margin-bottom: 75px;
+  }
+  &-wrapper {
+    padding-left: 70px;
+  }
+
+  &-desc {
+    @include font(14px, 24px, "Montserrat-Bold");
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 47px;
+  }
+  &-card-surface {
+    background-color: #fff;
+    padding: 20px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "но:";
+      top: 7px;
+      left: 67px;
+      background-color: #fff;
+      @include font(14px, 24px, "Montserrat-Bold");
+      text-transform: uppercase;
+      color: $green;
+      padding: 2px;
+      z-index: 2;
+    }
+  }
+  &-card {
+    position: relative;
+    border: 1px solid $green;
+    background-color: #fff;
+    padding: 46px 50px 50px 50px;
+    max-width: 530px;
+    z-index: 1;
+  }
+  &-card-desc {
+    @include font(16px, 22px, "Montserrat-Regular");
+    margin-top: 0;
+    margin-bottom: 20px;
+    &:nth-last-child(2) {
+      margin-bottom: 50px;
+    }
+  }
+
+  & .button {
+    width: 350px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

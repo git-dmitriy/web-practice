@@ -1,0 +1,126 @@
+.ingredients {
+  margin-bottom: 168px;
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &-cards-col {
+    width: 570px;
+    padding-top: 75px;
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin-right: -10px;
+  }
+  &-item {
+    width: 270px;
+    background-color: $card_bg;
+    margin: 10px;
+    position: relative;
+    & p:nth-child(3) {
+      display: none;
+    }
+    & p[lang="la"] {
+      position: absolute;
+      top: unset;
+      right: 16px;
+      bottom: 16px;
+      color: $green;
+      font: 14px/24px "Montserrat-Regular";
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      margin: 0;
+    }
+
+    @for $i from 1 through 6 {
+      &:nth-child(#{$i})::before {
+        content: "— 0#{$i}";
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        font-family: "Montserrat-Bold";
+        font-size: 14px;
+        line-height: 24px;
+        transform: rotate(180deg);
+        writing-mode: vertical-lr;
+        color: $green;
+      }
+    }
+    &:hover p:nth-child(3) {
+      position: absolute;
+      content: "";
+      @include font(14px, 20px, "Montserrat-Bold");
+      text-align: center;
+      vertical-align: middle;
+      color: #fff;
+      top: 16px;
+      left: 16px;
+      bottom: 16px;
+      right: 16px;
+      background: radial-gradient(rgba($green, 0.7), lighten($green, 10%));
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    &-secret {
+      @include font(14px, 22px, "Montserrat-Bold");
+      text-transform: uppercase;
+      color: $black;
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+      z-index: 1;
+    }
+    &:last-child::after {
+      content: "?";
+      position: absolute;
+      top: 130px;
+      left: 67px;
+      z-index: 0;
+      @include font(250px, 22px, "Montserrat-Bold");
+      color: lighten($green, 20%);
+    }
+  }
+
+  &-list-col {
+    max-width: 520px;
+    width: 100%;
+    color: $black;
+  }
+  &-title {
+    @include font(40px, 50px, "Montserrat-Bold");
+    margin-bottom: 48px;
+  }
+  &-description {
+    @include font(16px, 22px, "Montserrat-Regular");
+    list-style: none;
+    margin-bottom: 386px;
+
+    & li {
+      position: relative;
+      margin-bottom: 34px;
+    }
+    & li::before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: -20px;
+      width: 7px;
+      height: 7px;
+      background-color: $green;
+      border-radius: 50%;
+    }
+  }
+
+  & .button {
+    width: 350px;
+    position: relative;
+    left: 169px;
+  }
+}
