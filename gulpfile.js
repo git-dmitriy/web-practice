@@ -19,7 +19,7 @@ const externalFiles = {
 
 */
 
-const projectName = "swedish-bitter";
+const projectName = "denim";
 
 const project = {
   src: `flexbox/${projectName}/src`,
