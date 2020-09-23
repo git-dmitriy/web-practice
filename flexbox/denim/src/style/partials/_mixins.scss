@@ -1,0 +1,6 @@
+@mixin font($size, $ln_height, $font_weight, $family: "Work Sans") {
+  font-family: $family;
+  font-size: $size;
+  line-height: $ln_height;
+  font-weight: $font_weight;
+}
