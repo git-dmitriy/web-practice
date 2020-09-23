@@ -1,0 +1,28 @@
+.main-footer {
+  background-color: $black;
+}
+
+.footer-content-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-footer-logo {
+}
+.footer-navigation {
+  display: flex;
+  margin-right: -30px;
+}
+.footer-navigation-item {
+  margin-right: 30px;
+}
+.footer-navigation-link {
+}
+.social {
+  display: flex;
+  margin-right: -30px;
+}
+.social-item {
+  margin-right: 30px;
+}
