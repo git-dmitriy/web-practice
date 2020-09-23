@@ -1,0 +1,23 @@
+.promo {
+  background-color: $gray;
+  & .container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-text-col {
+  }
+  &-title {
+  }
+  &-text {
+  }
+
+  &-img-col {
+  }
+  &-img-wrap {
+  }
+  &-img {
+  }
+}
+
+.button {
+}
