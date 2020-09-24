@@ -10,8 +10,7 @@ body {
   font-weight: normal;
   font-size: 18px;
   line-height: 21px;
-  color: #151c22;
-  // max-width: 1920px;
+  color: $black;
 }
 
 .visually-hidden {
@@ -83,6 +82,7 @@ ul {
   background-color: $black;
   @include font(16px, 18px, 700);
   text-decoration: none;
+  text-align: center;
   padding: 25px;
   color: #fff;
 }
