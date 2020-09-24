@@ -1,25 +1,25 @@
 .bestsellers {
+  padding-top: 120px;
+  margin-bottom: 80px;
 }
-.container {
-}
-.section-header {
-  display: flex;
-  justify-content: space-between;
-}
-.section-title {
-}
-.show-more {
-}
-.catalog-list {
-  display: flex;
-  margin-right: -30px;
-}
-.catalog-item {
-  margin-right: 30px;
-}
+
 .catalog-item-link {
+  text-decoration: none;
 }
+
+.catalog-item-img-wrap {
+  width: 270px;
+  margin-bottom: 18px;
+}
+.catalog-item-img {
+  width: 100%;
+}
+
 .catalog-item-title {
+  margin-bottom: 8px;
 }
+
 .catalog-item-price {
+  @include font(16px, 18px, 700);
+  color: $black;
 }
