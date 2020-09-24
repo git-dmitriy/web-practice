@@ -1,5 +1,7 @@
 .main-footer {
   background-color: $black;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .footer-content-wrap {
@@ -9,20 +11,28 @@
   align-items: center;
 }
 .main-footer-logo {
+  width: 75px;
+  margin-bottom: 24px;
+}
+
+.main-footer-logo-img {
+  width: 100%;
 }
 .footer-navigation {
   display: flex;
-  margin-right: -30px;
+  margin-bottom: 34px;
 }
-.footer-navigation-item {
-  margin-right: 30px;
+.footer-navigation-item:not(:last-child) {
+  margin-right: 42px;
 }
 .footer-navigation-link {
+  @include font(16px, 21px, 500);
+  color: #fff;
+  text-decoration: none;
 }
 .social {
   display: flex;
-  margin-right: -30px;
 }
-.social-item {
+.social-item:not(:last-child) {
   margin-right: 30px;
 }
