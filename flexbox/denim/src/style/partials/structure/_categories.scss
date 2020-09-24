@@ -1,6 +1,14 @@
 .categories {
+  margin-bottom: 119px;
   &-item-link {
   }
   &-item-title {
+  }
+  .catalog-item-img-wrap {
+    width: 270px;
+    height: auto;
+  }
+  .catalog-item-img {
+    width: 100%;
   }
 }
