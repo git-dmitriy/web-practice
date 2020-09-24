@@ -5,17 +5,70 @@
     justify-content: space-between;
   }
   &-text-col {
+    padding-top: 190px;
+    padding-left: 170px;
+    position: relative;
   }
   &-title {
+    @include font(18px, 21px, 400);
+    color: $dark_gray;
   }
-  &-text {
+  & .denim-logo-wrap {
+    width: 294px;
+    margin-bottom: 45px;
+  }
+  & .denim-logo-img {
+    width: 100%;
+  }
+
+  .arrow-icon {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
   }
 
   &-img-col {
+    padding-top: 50px;
+    padding-right: 168px;
+    padding-bottom: 50px;
   }
   &-img-wrap {
+    width: 430px;
+    position: relative;
+    z-index: 1;
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 232px;
+      height: 176px;
+      z-index: -1;
+    }
+    &::before {
+      top: -50px;
+      left: -51px;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        black 11px,
+        black 12px
+      );
+    }
+    &::after {
+      bottom: -48px;
+      right: -50px;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 10px,
+        black 11px,
+        black 12px
+      );
+    }
   }
   &-img {
+    width: 100%;
   }
 }
 
