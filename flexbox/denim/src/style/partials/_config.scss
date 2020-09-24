@@ -44,16 +44,23 @@ ul {
 .section-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  margin-bottom: 50px;
 }
 
 .section-title {
   @include font(32px, 37px, 700);
-  margin-bottom: 60px;
+  margin: 0;
 }
 .show-more {
+  display: inline-block;
+  width: 78px;
+  text-align: right;
   @include font(18px, 21px, 500);
   text-decoration: none;
   color: $black;
+  border-bottom: 3px solid $black;
 }
 
 .catalog-list {
