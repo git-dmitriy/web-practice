@@ -28,7 +28,7 @@ const project = {
   styleSrc: `flexbox/${projectName}/src/style/style.scss`,
   styleWatch: `flexbox/${projectName}/src/style/**/*.*`,
   styleDist: `flexbox/${projectName}/dist/css`,
-  html: `flexbox/${projectName}/src/*.html`,
+  html: `flexbox/${projectName}/src/**/*.html`,
   img: `flexbox/${projectName}/src/img/*.*`,
   imgDist: `flexbox/${projectName}/dist/img`,
   fonts: `flexbox/${projectName}/src/fonts/**/*`,
