@@ -1,8 +1,9 @@
 $black: #151c22;
 $gray: #f1f2f4;
+$dark_gray: #727a82;
 
 body {
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   min-width: 1200px;
   font-family: "Work Sans", "Arial", sans-serif;
@@ -10,7 +11,7 @@ body {
   font-size: 18px;
   line-height: 21px;
   color: #151c22;
-  max-width: 1920px;
+  // max-width: 1920px;
 }
 
 .visually-hidden {
@@ -38,5 +39,43 @@ ul {
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
-  background-color: $gray;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-title {
+  @include font(32px, 37px, 700);
+  margin-bottom: 60px;
+}
+.show-more {
+  @include font(18px, 21px, 500);
+  text-decoration: none;
+  color: $black;
+}
+
+.catalog-list {
+  display: flex;
+  margin-right: -30px;
+}
+
+.catalog-item {
+  margin-right: 30px;
+}
+
+.catalog-item-title {
+  @include font(18px, 21px, 500);
+  color: $black;
+}
+
+.button {
+  display: inline-block;
+  height: 65px;
+  background-color: $black;
+  @include font(16px, 18px, 700);
+  text-decoration: none;
+  padding: 25px;
+  color: #fff;
 }
