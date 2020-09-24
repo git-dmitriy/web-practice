@@ -86,3 +86,27 @@ ul {
   padding: 25px;
   color: #fff;
 }
+
+.breadcrumbs {
+  display: flex;
+  margin-right: -30px;
+}
+.breadcrumbs-item {
+  margin-right: 30px;
+  position: relative;
+  &:not(:last-child)::after {
+    content: "/";
+    color: $dark_gray;
+    position: absolute;
+    top: 0;
+    right: -20px;
+  }
+}
+.breadcrumbs-link {
+  text-decoration: none;
+  color: $dark_gray;
+  @include font(18px, 21px, 500);
+}
+.breadcrumbs-current {
+  color: $black;
+}
