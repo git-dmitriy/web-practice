@@ -40,6 +40,8 @@ ul {
   margin: 0 auto;
 }
 
+// section header
+
 .section-header {
   display: flex;
   justify-content: space-between;
@@ -62,13 +64,50 @@ ul {
   border-bottom: 3px solid $black;
 }
 
+// catalog
+.catalog-filter {
+  @include font(18px, 21px, 500);
+  border: 2px solid $black;
+  background-color: #fff;
+  border-radius: 0;
+  padding: 13px 15px;
+  min-width: 243px;
+  margin-left: auto;
+  margin-bottom: 40px;
+}
+
 .catalog-list {
   display: flex;
+  flex-wrap: wrap;
   margin-right: -30px;
+
+  &-compact {
+    margin-right: -70px;
+    margin-bottom: 15px;
+    & .catalog-item {
+      margin-bottom: 46px;
+    }
+  }
 }
 
 .catalog-item {
   margin-right: 30px;
+  &-compact {
+    margin-right: 67px;
+  }
+}
+.catalog-item-img-wrap {
+  width: 270px;
+  height: auto;
+}
+
+.catalog-item-img-wrap-compact {
+  width: 243px;
+  margin-bottom: 18px;
+}
+
+.catalog-item-img {
+  width: 100%;
 }
 
 .catalog-item-title {
