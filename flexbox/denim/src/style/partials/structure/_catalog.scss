@@ -1,0 +1,32 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 35px;
+  padding-bottom: 128px;
+
+  .button {
+    min-width: 200px;
+  }
+}
+
+.catalog-slider-wrapper {
+}
+.catalog-slider {
+  margin-bottom: 4px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 2px;
+  background-color: $gray;
+  position: relative;
+  margin-bottom: 39px;
+
+  &-line {
+    display: block;
+    width: 20%;
+    height: 2px;
+    background-color: $black;
+  }
+}
