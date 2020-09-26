@@ -47,7 +47,6 @@
   padding-left: 70px;
   position: relative;
   &::after {
-
     // * Написать функцию на js для определения размера декоративного пседвоэлемента
     // position: absolute;
     // background-color: $gray;
@@ -101,6 +100,10 @@ input[value="gray"],
 }
 .label {
   cursor: pointer;
+}
+
+.size {
+  @include font(18px, 21px, 500);
 }
 
 .color {
