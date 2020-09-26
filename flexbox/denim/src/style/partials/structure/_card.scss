@@ -1,0 +1,166 @@
+.card {
+  margin-bottom: 108px;
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 54px;
+  padding-left: 70px;
+}
+.card-photos-column {
+  position: relative;
+}
+.card-photo-full {
+  margin-bottom: 15px;
+}
+.card-photo-preview {
+  display: flex;
+  justify-content: space-between;
+}
+.card-photo-preview-item {
+}
+
+.card-photo-prev-button,
+.card-photo-next-button {
+  position: absolute;
+  top: 29%;
+  border: none;
+  background-color: transparent;
+}
+
+.card-photo-prev-button {
+  left: -19%;
+}
+.card-photo-next-button {
+  right: -20% !important;
+}
+
+.card-photo-next-button-img {
+  transform: rotate(180deg);
+}
+
+.card-description-column {
+  background-color: $gray;
+  width: 570px;
+  padding-top: 62px;
+  padding-left: 70px;
+  position: relative;
+  &::after {
+
+    // * Написать функцию на js для определения размера декоративного пседвоэлемента
+    // position: absolute;
+    // background-color: $gray;
+    // content: "";
+    // top: 0;
+    // right: -50%;
+    // bottom: 0;
+    // left: 0;
+    // z-index: -1;
+  }
+}
+
+.card-description-header {
+  @include font(32px, 37px, 700);
+}
+
+.card-description-text {
+  @include font(16px, 20px, 400);
+  margin-bottom: 43px;
+}
+
+.fieldset-color,
+.fieldset-size {
+  border: none;
+  padding: 0;
+}
+
+.fieldset-color {
+  margin-bottom: 42px;
+}
+.fieldset-size {
+  margin-bottom: 30px;
+}
+
+.filedset-color-wrap,
+.fieldset-size-wrap {
+  display: flex;
+  color: $dark_gray;
+}
+
+.filedset-size-wrap {
+  margin-bottom: 30px;
+}
+
+input[value="light-gray"],
+input[value="light-blue"],
+input[value="gray"],
+.fieldset-size-wrap input {
+  position: absolute;
+  z-index: -1;
+}
+.label {
+  cursor: pointer;
+}
+
+.color {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.color-light-gray {
+  background-color: #b0c3c7;
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px transparent;
+}
+.color-light-blue {
+  background-color: #3b6392;
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px transparent;
+}
+.color-gray {
+  background-color: #bfc3c8;
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px transparent;
+}
+
+.color-light-gray:hover,
+.color-light-gray:focus,
+input[value="light-gray"]:checked ~ .color-light-gray {
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px #b0c3c7;
+}
+.color-light-blue:hover,
+.color-light-blue:focus,
+input[value="light-blue"]:checked ~ .color-light-blue {
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px #3b6392;
+}
+.color-gray:hover,
+.color-gray:focus,
+input[value="gray"]:checked ~ .color-gray {
+  box-shadow: 0 0 0 2px $gray, 0 0 0 3px #bfc3c8;
+}
+
+.size {
+  margin-right: 20px;
+}
+
+#size-xs:checked ~ .size-xs,
+#size-s:checked ~ .size-s,
+#size-m:checked ~ .size-m,
+#size-l:checked ~ .size-l,
+#size-xl:checked ~ .size-xl {
+  color: $black;
+}
+
+.card-description-property {
+  margin-bottom: 22px;
+}
+
+.card-description-price {
+  @include font(18px, 21px, 700);
+  margin-bottom: 44px;
+}
+
+.button {
+  min-width: 200px;
+}
