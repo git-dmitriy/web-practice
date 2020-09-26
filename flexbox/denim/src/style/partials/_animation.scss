@@ -1,0 +1,35 @@
+@keyframes move_up {
+  from {
+    transform: translate(+50%, +50%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes move_down {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes move_left {
+  from {
+    transform: translateX(-30%);
+  }
+  to {
+    transform: translateX( 0%);
+  }
+}
+
+@keyframes move_right {
+  from {
+    transform: translateX(+30%);
+  }
+  to {
+    transform: translateX( 0%);
+  }
+}
