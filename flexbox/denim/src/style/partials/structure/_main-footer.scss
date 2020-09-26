@@ -29,10 +29,28 @@
   @include font(16px, 21px, 500);
   color: #fff;
   text-decoration: none;
+  &:hover {
+    color: $dark-gray;
+  }
 }
 .social {
   display: flex;
 }
 .social-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.social-item a svg {
+  fill: #fff;
+  transition: 0.3s;
+}
+
+.social-item a:hover svg {
+  fill: $dark_gray;
+}
+
+svg path {
+  fill: inherit;
+  stroke: inherit;
+  stroke-width: inherit;
 }

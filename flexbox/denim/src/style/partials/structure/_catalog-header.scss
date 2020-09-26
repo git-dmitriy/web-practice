@@ -42,6 +42,7 @@
       black 11px,
       black 12px
     );
+    animation: .5s move_left ease-in;
   }
   &::after {
     bottom: 4px;
@@ -53,6 +54,7 @@
       black 11px,
       black 12px
     );
+    animation: .5s move_right ease-in;
   }
 }
 .catalog-header-img {
