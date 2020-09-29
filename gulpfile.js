@@ -13,30 +13,39 @@ const externalFiles = {
 
 /*
   * Projects list:
-    denim
-    swedish-bitter
-
-
+    1. denim
+    2. swedish-bitter
+    3. conquest
 */
 
 const projectName = "denim";
 
-const project = {
-  src: `flexbox/${projectName}/src`,
+const path = {
+  build: {
+    html: `flexbox/${projectName}/dist/**/*.html`,
+    js: `flexbox/${projectName}/dist/js/*.js`,
+    css: `flexbox/${projectName}/dist/css`,
+    images: `flexbox/${projectName}/dist/img`,
+    fonts: `flexbox/${projectName}/dist/fonts`,
+  },
+  src: {
+    html: `flexbox/${projectName}/src/**/*.html`,
+    js: `flexbox/${projectName}/src/js/*.js`,
+    css: `flexbox/${projectName}/src/style/style.scss`,
+    images: `flexbox/${projectName}/src/img/*.*`,
+    fonts: `flexbox/${projectName}/src/fonts/**/*`,
+  },
+  watch: {
+    html: "flexbox/src/**/*.html",
+    js: "flexbox/src/js/**/*.js",
+    css: "flexbox/src/style/**/*.scss",
+    images: `flexbox/${projectName}/src/img/*.*{jpg,png,svg,ico}`,
+  },
   dist: `flexbox/${projectName}/dist`,
-  distClean: `flexbox/${projectName}/dist/**/*`,
-  styleSrc: `flexbox/${projectName}/src/style/style.scss`,
-  styleWatch: `flexbox/${projectName}/src/style/**/*.*`,
-  styleDist: `flexbox/${projectName}/dist/css`,
-  html: `flexbox/${projectName}/src/**/*.html`,
-  img: `flexbox/${projectName}/src/img/*.*`,
-  imgDist: `flexbox/${projectName}/dist/img`,
-  fonts: `flexbox/${projectName}/src/fonts/**/*`,
-  fontsDist: `flexbox/${projectName}/dist/fonts`,
 };
 
 task("styles", () => {
-  return src([externalFiles.normalize, project.styleSrc], {
+  return src([externalFiles.normalize, path.src.css], {
     allowEmpty: true,
   })
     .pipe(concat("main.scss"))
@@ -47,13 +56,13 @@ task("styles", () => {
         stream: true,
       })
     )
-    .pipe(dest(project.styleDist));
+    .pipe(dest(path.build.css));
 });
 
 task("server", () => {
   browserSync.init({
     server: {
-      baseDir: project.dist,
+      baseDir: path.dist,
       serveStaticOptions: {
         extensions: ["html"],
       },
@@ -63,15 +72,15 @@ task("server", () => {
 });
 
 task("clean", () => {
-  return src(project.distClean, {
+  return src(path.dist, {
     read: false,
     allowEmpty: true,
   }).pipe(rm());
 });
 
 task("copy:html", () => {
-  return src(project.html)
-    .pipe(dest(project.dist))
+  return src(path.src.html)
+    .pipe(dest(path.dist))
     .pipe(
       reload({
         stream: true,
@@ -80,12 +89,12 @@ task("copy:html", () => {
 });
 
 task("copy:fonts", () => {
-  return src(project.fonts).pipe(dest(project.fontsDist));
+  return src(path.src.fonts).pipe(dest(path.build.fonts));
 });
 
 task("copy:img", () => {
-  return src(project.img)
-    .pipe(dest(project.imgDist))
+  return src(path.src.images)
+    .pipe(dest(path.build.images))
     .pipe(
       reload({
         stream: true,
@@ -93,9 +102,9 @@ task("copy:img", () => {
     );
 });
 
-watch(project.styleWatch, series("styles"));
-watch(project.html, series("copy:html"));
-watch(project.img, series("copy:img"));
+watch(path.watch.css, series("styles"));
+watch(path.watch.html, series("copy:html"));
+watch(path.watch.images, series("copy:img"));
 
 task(
   "default",
