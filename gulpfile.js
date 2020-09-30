@@ -36,9 +36,9 @@ const path = {
     fonts: `flexbox/${projectName}/src/fonts/**/*`,
   },
   watch: {
-    html: "flexbox/src/**/*.html",
-    js: "flexbox/src/js/**/*.js",
-    css: "flexbox/src/style/**/*.scss",
+    html: `flexbox/${projectName}/src/**/*.html`,
+    js: `flexbox/${projectName}/src/js/**/*.js`,
+    css: `flexbox/${projectName}/src/style/**/*.scss`,
     images: `flexbox/${projectName}/src/img/*.*{jpg,png,svg,ico}`,
   },
   dist: `flexbox/${projectName}/dist`,
