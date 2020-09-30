@@ -12,6 +12,7 @@ const gcmq = require("gulp-group-css-media-queries");
 const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
+const uglify = require("gulp-uglify");
 
 const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
@@ -110,6 +111,7 @@ task("scripts", () => {
         presets: ["@babel/env"],
       })
     )
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(dest(path.build.js))
     .pipe(
