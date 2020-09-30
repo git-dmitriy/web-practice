@@ -15,6 +15,9 @@ const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const svgo = require("gulp-svgo");
 const svgSprite = require("gulp-svg-sprite");
+const gulpif = require("gulp-if");
+
+const env = process.env.NODE_ENV;
 
 const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
@@ -57,25 +60,23 @@ const path = {
 };
 
 task("styles", () => {
-  return (
-    src([externalFiles.normalize, path.src.css], {
-      allowEmpty: true,
-    })
-      .pipe(sourcemaps.init())
-      .pipe(concat("main.scss"))
-      .pipe(sassGlob())
-      .pipe(sass().on("error", sass.logError))
-      .pipe(postcss([autoprefixer()]))
-      // .pipe(gcmq())
-      .pipe(cleanCSS({}))
-      .pipe(sourcemaps.write())
-      .pipe(dest(path.build.css))
-      .pipe(
-        reload({
-          stream: true,
-        })
-      )
-  );
+  return src([externalFiles.normalize, path.src.css], {
+    allowEmpty: true,
+  })
+    .pipe(gulpif(env === "dev", sourcemaps.init()))
+    .pipe(concat("main.scss"))
+    .pipe(sassGlob())
+    .pipe(sass().on("error", sass.logError))
+    .pipe(gulpif(env === "prod", postcss([autoprefixer()])))
+    .pipe(gulpif(env === "prod", gcmq()))
+    .pipe(gulpif(env === "prod", cleanCSS()))
+    .pipe(gulpif(env === "dev", sourcemaps.write()))
+    .pipe(dest(path.build.css))
+    .pipe(
+      reload({
+        stream: true,
+      })
+    );
 });
 
 task("server", () => {
@@ -109,15 +110,18 @@ task("copy:html", () => {
 
 task("scripts", () => {
   return src(path.src.js)
-    .pipe(sourcemaps.init())
+    .pipe(gulpif(env === "dev", sourcemaps.init()))
     .pipe(concat("main.js", { newLine: ";" }))
     .pipe(
-      babel({
-        presets: ["@babel/env"],
-      })
+      gulpif(
+        env === "prod",
+        babel({
+          presets: ["@babel/env"],
+        })
+      )
     )
-    .pipe(uglify())
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(env === "prod", uglify()))
+    .pipe(gulpif(env === "dev", sourcemaps.write()))
     .pipe(dest(path.build.js))
     .pipe(
       reload({
@@ -163,11 +167,13 @@ task("icons", () => {
     .pipe(dest(path.build.icons));
 });
 
-watch(path.watch.html, series("copy:html"));
-watch(path.watch.css, series("styles"));
-watch(path.watch.js, series("scripts"));
-watch(path.watch.images, series("copy:img", "icons"));
-watch(path.watch.icons, series("icons"));
+task("watch", () => {
+  watch(path.watch.html, series("copy:html"));
+  watch(path.watch.css, series("styles"));
+  watch(path.watch.js, series("scripts"));
+  watch(path.watch.images, series("copy:img", "icons"));
+  watch(path.watch.icons, series("icons"));
+});
 
 task(
   "default",
@@ -181,6 +187,21 @@ task(
       "styles",
       "scripts"
     ),
-    "server"
+    parallel("watch", "server")
+  )
+);
+
+task(
+  "build",
+  series(
+    "clean",
+    parallel(
+      "copy:html",
+      "copy:img",
+      "icons",
+      "copy:fonts",
+      "styles",
+      "scripts"
+    )
   )
 );
