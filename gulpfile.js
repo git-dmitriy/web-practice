@@ -13,6 +13,8 @@ const cleanCSS = require("gulp-clean-css");
 const sourcemaps = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
+const svgo = require("gulp-svgo");
+const svgSprite = require("gulp-svg-sprite");
 
 const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
@@ -33,6 +35,7 @@ const path = {
     js: `flexbox/${projectName}/dist/js`,
     css: `flexbox/${projectName}/dist/css`,
     images: `flexbox/${projectName}/dist/img`,
+    icons: `flexbox/${projectName}/dist/img/icons`,
     fonts: `flexbox/${projectName}/dist/fonts`,
   },
   src: {
@@ -40,6 +43,7 @@ const path = {
     js: `flexbox/${projectName}/src/js/*.js`,
     css: `flexbox/${projectName}/src/style/style.scss`,
     images: `flexbox/${projectName}/src/img/*.*`,
+    icons: `flexbox/${projectName}/src/img/icons/*.svg`,
     fonts: `flexbox/${projectName}/src/fonts/**/*`,
   },
   watch: {
@@ -47,6 +51,7 @@ const path = {
     js: `flexbox/${projectName}/src/js/**/*.js`,
     css: `flexbox/${projectName}/src/style/**/*.scss`,
     images: `flexbox/${projectName}/src/img/*.*{jpg,png,svg,ico}`,
+    icons: `flexbox/${projectName}/src/img/icons/*.svg`,
   },
   dist: `flexbox/${projectName}/dist`,
 };
@@ -135,10 +140,34 @@ task("copy:img", () => {
     );
 });
 
+task("icons", () => {
+  return src(path.src.icons)
+    .pipe(
+      svgo({
+        plugins: [
+          {
+            removeAttrs: { attrs: "(fill|stroke|style|width|height|data.*)" },
+          },
+        ],
+      })
+    )
+    .pipe(
+      svgSprite({
+        mode: {
+          symbol: {
+            sprite: "../sprite.svg",
+          },
+        },
+      })
+    )
+    .pipe(dest(path.build.icons));
+});
+
 watch(path.watch.html, series("copy:html"));
 watch(path.watch.css, series("styles"));
 watch(path.watch.js, series("scripts"));
-watch(path.watch.images, series("copy:img"));
+watch(path.watch.images, series("copy:img", "icons"));
+watch(path.watch.icons, series("icons"));
 
 task(
   "default",
@@ -146,6 +175,7 @@ task(
     "clean",
     "copy:html",
     "copy:img",
+    "icons",
     "copy:fonts",
     "styles",
     "scripts",
