@@ -9,6 +9,7 @@ const sassGlob = require("gulp-sass-glob");
 const autoprefixer = require("autoprefixer");
 const postcss = require("gulp-postcss");
 const gcmq = require("gulp-group-css-media-queries");
+const cleanCSS = require("gulp-clean-css");
 
 const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
@@ -56,6 +57,7 @@ task("styles", () => {
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss([autoprefixer()]))
     .pipe(gcmq())
+    .pipe(cleanCSS({}))
     .pipe(
       reload({
         stream: true,
