@@ -27,8 +27,8 @@ const projectName = "denim";
 
 const path = {
   build: {
-    html: `flexbox/${projectName}/dist/**/*.html`,
-    js: `flexbox/${projectName}/dist/js/*.js`,
+    html: `flexbox/${projectName}/dist/`,
+    js: `flexbox/${projectName}/dist/js`,
     css: `flexbox/${projectName}/dist/css`,
     images: `flexbox/${projectName}/dist/img`,
     fonts: `flexbox/${projectName}/dist/fonts`,
@@ -68,6 +68,11 @@ task("styles", () => {
       // )
       .pipe(sourcemaps.write())
       .pipe(dest(path.build.css))
+      .pipe(
+        reload({
+          stream: true,
+        })
+      )
   );
 });
 
@@ -100,6 +105,19 @@ task("copy:html", () => {
     );
 });
 
+task("scripts", () => {
+  return src(path.src.js)
+    .pipe(sourcemaps.init())
+    .pipe(concat("main.js", { newLine: ";" }))
+    .pipe(sourcemaps.write())
+    .pipe(dest(path.build.js))
+    .pipe(
+      reload({
+        stream: true,
+      })
+    );
+});
+
 task("copy:fonts", () => {
   return src(path.src.fonts).pipe(dest(path.build.fonts));
 });
@@ -114,11 +132,20 @@ task("copy:img", () => {
     );
 });
 
-watch(path.watch.css, series("styles"));
 watch(path.watch.html, series("copy:html"));
+watch(path.watch.css, series("styles"));
+watch(path.watch.js, series("scripts"));
 watch(path.watch.images, series("copy:img"));
 
 task(
   "default",
-  series("clean", "copy:html", "copy:img", "copy:fonts", "styles", "server")
+  series(
+    "clean",
+    "copy:html",
+    "copy:img",
+    "copy:fonts",
+    "styles",
+    "scripts",
+    "server"
+  )
 );
