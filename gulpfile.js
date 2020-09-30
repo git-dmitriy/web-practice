@@ -17,50 +17,38 @@ const svgo = require("gulp-svgo");
 const svgSprite = require("gulp-svg-sprite");
 const gulpif = require("gulp-if");
 
+const { SRC_PATH, DIST_PATH, STYLES_LIBS, JS_LIBS } = require("./gulpconfig");
 const env = process.env.NODE_ENV;
-
-const externalFiles = {
-  normalize: "node_modules/normalize.css/normalize.css",
-};
-
-/*
-  * Projects list:
-    1. denim
-    2. swedish-bitter
-    3. conquest
-*/
-
-const projectName = "denim";
 
 const path = {
   build: {
-    html: `flexbox/${projectName}/dist/`,
-    js: `flexbox/${projectName}/dist/js`,
-    css: `flexbox/${projectName}/dist/css`,
-    images: `flexbox/${projectName}/dist/img`,
-    icons: `flexbox/${projectName}/dist/img/icons`,
-    fonts: `flexbox/${projectName}/dist/fonts`,
+    html: `${DIST_PATH}`,
+    js: `${DIST_PATH}/js`,
+    css: `${DIST_PATH}/css`,
+    images: `${DIST_PATH}/img`,
+    icons: `${DIST_PATH}/img/icons`,
+    fonts: `${DIST_PATH}/fonts`,
   },
   src: {
-    html: `flexbox/${projectName}/src/**/*.html`,
-    js: `flexbox/${projectName}/src/js/*.js`,
-    css: `flexbox/${projectName}/src/style/style.scss`,
-    images: `flexbox/${projectName}/src/img/*.*`,
-    icons: `flexbox/${projectName}/src/img/icons/*.svg`,
-    fonts: `flexbox/${projectName}/src/fonts/**/*`,
+    html: `${SRC_PATH}/**/*.html`,
+    js: `${SRC_PATH}/js/*.js`,
+    css: `${SRC_PATH}/style/style.scss`,
+    images: `${SRC_PATH}/img/*.*`,
+    icons: `${SRC_PATH}/img/icons/*.svg`,
+    fonts: `${SRC_PATH}/fonts/**/*`,
   },
   watch: {
-    html: `flexbox/${projectName}/src/**/*.html`,
-    js: `flexbox/${projectName}/src/js/**/*.js`,
-    css: `flexbox/${projectName}/src/style/**/*.scss`,
-    images: `flexbox/${projectName}/src/img/*.*{jpg,png,svg,ico}`,
-    icons: `flexbox/${projectName}/src/img/icons/*.svg`,
+    html: `${SRC_PATH}/**/*.html`,
+    js: `${SRC_PATH}/js/**/*.js`,
+    css: `${SRC_PATH}/style/**/*.scss`,
+    images: `${SRC_PATH}/img/*.*{jpg,png,svg,ico}`,
+    icons: `${SRC_PATH}/img/icons/*.svg`,
   },
-  dist: `flexbox/${projectName}/dist`,
+  dist: `${DIST_PATH}`,
 };
 
 task("styles", () => {
-  return src([externalFiles.normalize, path.src.css], {
+  return src([...STYLES_LIBS, path.src.css], {
     allowEmpty: true,
   })
     .pipe(gulpif(env === "dev", sourcemaps.init()))
