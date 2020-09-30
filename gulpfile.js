@@ -10,6 +10,7 @@ const autoprefixer = require("autoprefixer");
 const postcss = require("gulp-postcss");
 const gcmq = require("gulp-group-css-media-queries");
 const cleanCSS = require("gulp-clean-css");
+const sourcemaps = require("gulp-sourcemaps");
 
 const externalFiles = {
   normalize: "node_modules/normalize.css/normalize.css",
@@ -49,21 +50,25 @@ const path = {
 };
 
 task("styles", () => {
-  return src([externalFiles.normalize, path.src.css], {
-    allowEmpty: true,
-  })
-    .pipe(concat("main.scss"))
-    .pipe(sassGlob())
-    .pipe(sass().on("error", sass.logError))
-    .pipe(postcss([autoprefixer()]))
-    .pipe(gcmq())
-    .pipe(cleanCSS({}))
-    .pipe(
-      reload({
-        stream: true,
-      })
-    )
-    .pipe(dest(path.build.css));
+  return (
+    src([externalFiles.normalize, path.src.css], {
+      allowEmpty: true,
+    })
+      .pipe(sourcemaps.init())
+      .pipe(concat("main.scss"))
+      .pipe(sassGlob())
+      .pipe(sass().on("error", sass.logError))
+      .pipe(postcss([autoprefixer()]))
+      // .pipe(gcmq())
+      .pipe(cleanCSS({}))
+      // .pipe(
+      //   reload({
+      //     stream: true,
+      //   })
+      // )
+      .pipe(sourcemaps.write())
+      .pipe(dest(path.build.css))
+  );
 });
 
 task("server", () => {
