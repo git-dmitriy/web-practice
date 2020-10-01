@@ -17,6 +17,7 @@ const svgo = require("gulp-svgo");
 const svgSprite = require("gulp-svg-sprite");
 const gulpif = require("gulp-if");
 const pug = require("gulp-pug");
+const plumber = require("gulp-plumber");
 
 const { SRC_PATH, DIST_PATH, STYLES_LIBS, JS_LIBS } = require("./gulpconfig");
 const env = process.env.NODE_ENV;
@@ -54,6 +55,7 @@ task("styles", () => {
   return src([...STYLES_LIBS, path.src.css], {
     allowEmpty: true,
   })
+    .pipe(plumber())
     .pipe(gulpif(env === "dev", sourcemaps.init()))
     .pipe(concat("main.scss"))
     .pipe(sassGlob())
@@ -91,6 +93,7 @@ task("clean", () => {
 
 task("copy:html", () => {
   return src(path.src.html)
+    .pipe(plumber())
     .pipe(dest(path.dist))
     .pipe(
       reload({
@@ -101,6 +104,7 @@ task("copy:html", () => {
 
 task("pug", () => {
   return src(path.src.pug, { ignore: "./**/common/*.pug" })
+    .pipe(plumber())
     .pipe(pug({ pretty: true }))
     .pipe(dest(path.build.html))
     .pipe(reload({ stream: true }));
@@ -108,6 +112,7 @@ task("pug", () => {
 
 task("scripts", () => {
   return src(path.src.js)
+    .pipe(plumber())
     .pipe(gulpif(env === "dev", sourcemaps.init()))
     .pipe(concat("main.js", { newLine: ";" }))
     .pipe(
@@ -129,11 +134,12 @@ task("scripts", () => {
 });
 
 task("copy:fonts", () => {
-  return src(path.src.fonts).pipe(dest(path.build.fonts));
+  return src(path.src.fonts).pipe(plumber()).pipe(dest(path.build.fonts));
 });
 
 task("copy:img", () => {
   return src(path.src.images)
+    .pipe(plumber())
     .pipe(dest(path.build.images))
     .pipe(
       reload({
@@ -144,6 +150,7 @@ task("copy:img", () => {
 
 task("icons", () => {
   return src(path.src.icons)
+    .pipe(plumber())
     .pipe(
       svgo({
         plugins: [
