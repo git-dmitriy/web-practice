@@ -16,6 +16,7 @@ const uglify = require("gulp-uglify");
 const svgo = require("gulp-svgo");
 const svgSprite = require("gulp-svg-sprite");
 const gulpif = require("gulp-if");
+const pug = require("gulp-pug");
 
 const { SRC_PATH, DIST_PATH, STYLES_LIBS, JS_LIBS } = require("./gulpconfig");
 const env = process.env.NODE_ENV;
@@ -31,6 +32,7 @@ const path = {
   },
   src: {
     html: `${SRC_PATH}/**/*.html`,
+    pug: `${SRC_PATH}/**/*.pug`,
     js: `${SRC_PATH}/js/*.js`,
     css: `${SRC_PATH}/style/style.scss`,
     images: `${SRC_PATH}/img/*.*`,
@@ -39,6 +41,7 @@ const path = {
   },
   watch: {
     html: `${SRC_PATH}/**/*.html`,
+    pug: `${SRC_PATH}/**/*.pug`,
     js: `${SRC_PATH}/js/**/*.js`,
     css: `${SRC_PATH}/style/**/*.scss`,
     images: `${SRC_PATH}/img/*.*{jpg,png,svg,ico}`,
@@ -94,6 +97,13 @@ task("copy:html", () => {
         stream: true,
       })
     );
+});
+
+task("pug", () => {
+  return src(path.src.pug, { ignore: "./**/common/*.pug" })
+    .pipe(pug({ pretty: true }))
+    .pipe(dest(path.build.html))
+    .pipe(reload({ stream: true }));
 });
 
 task("scripts", () => {
@@ -157,9 +167,10 @@ task("icons", () => {
 
 task("watch", () => {
   watch(path.watch.html, series("copy:html"));
+  watch(path.watch.pug, series("pug"));
   watch(path.watch.css, series("styles"));
   watch(path.watch.js, series("scripts"));
-  watch(path.watch.images, series("copy:img", "icons"));
+  watch(path.watch.images, series("copy:img"));
   watch(path.watch.icons, series("icons"));
 });
 
@@ -169,6 +180,7 @@ task(
     "clean",
     parallel(
       "copy:html",
+      "pug",
       "copy:img",
       "icons",
       "copy:fonts",
@@ -185,6 +197,7 @@ task(
     "clean",
     parallel(
       "copy:html",
+      "pug",
       "copy:img",
       "icons",
       "copy:fonts",
