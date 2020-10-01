@@ -5,7 +5,7 @@
     3. conquest
 */
 
-const projectName = "denim";
+const projectName = "conquest";
 module.exports = {
   SRC_PATH: `./flexbox/${projectName}/src`,
   DIST_PATH: `./flexbox/${projectName}/dist`,
