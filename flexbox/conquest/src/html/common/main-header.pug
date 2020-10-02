@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= pageTitle
+    if mainPage
+      link(rel="stylesheet" href="./css/main.css")
+    else
+      link(rel="stylesheet" href="../css/main.css")
+  body
+    header.main-header
+      if mainPage
+        a.main-header__logo-link(href="") 
+          img.main-header__logo-img(src="./img/logo-header.svg" alt="")
+      else 
+        a.main-header__logo-link(href="") 
+          img.main-header__logo-img(src="../img/logo-header.svg" alt="")
+      nav.main-nav
+        ul.main-nav__list
+          li.main-nav__item Каталог
+          li.main-nav__item Акции
+          li.main-nav__item Доставка
+          li.main-nav__item Контакты
+
+      ul.user-nav
+        li.user-nav__item
+          a.user-nav__link(href="")
+          if mainPage
+            img.user-nav__link-img(src="./img/search_icon.svg" alt="")
+          else
+            img.user-nav__link-img(src="../img/search_icon.svg" alt="")
+        li.user-nav__item
+          a.user-nav__link(href="")
+          if mainPage
+            img.user-nav__link-img(src="./img/favorite_icon.svg" alt="")
+          else
+            img.user-nav__link-img(src="../img/favorite_icon.svg" alt="")
+        li.user-nav__item
+          a.user-nav__link(href="")
+            if mainPage
+              img.user-nav__link-img(src="./img/search_icon.svg" alt="")
+            else
+              img.user-nav__link-img(src="../img/search_icon.svg" alt="")
