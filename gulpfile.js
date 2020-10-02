@@ -1,5 +1,4 @@
 const { src, dest, task, series, watch, parallel } = require("gulp");
-const rm = require("gulp-rm");
 const sass = require("gulp-sass");
 const concat = require("gulp-concat");
 sass.compile = require("node-sass");
@@ -18,6 +17,7 @@ const svgSprite = require("gulp-svg-sprite");
 const gulpif = require("gulp-if");
 const pug = require("gulp-pug");
 const plumber = require("gulp-plumber");
+const clean = require("gulp-clean");
 
 const { SRC_PATH, DIST_PATH, STYLES_LIBS, JS_LIBS } = require("./gulpconfig");
 const env = process.env.NODE_ENV;
@@ -35,7 +35,7 @@ const path = {
     html: `${SRC_PATH}/**/*.html`,
     pug: `${SRC_PATH}/**/*.pug`,
     js: `${SRC_PATH}/js/*.js`,
-    css: `${SRC_PATH}/style/style.scss`,
+    css: `${SRC_PATH}/style/main.scss`,
     images: `${SRC_PATH}/img/*.*`,
     icons: `${SRC_PATH}/img/icons/*.svg`,
     fonts: `${SRC_PATH}/fonts/**/*`,
@@ -45,7 +45,7 @@ const path = {
     pug: `${SRC_PATH}/**/*.pug`,
     js: `${SRC_PATH}/js/**/*.js`,
     css: `${SRC_PATH}/style/**/*.scss`,
-    images: `${SRC_PATH}/img/*.*{jpg,png,svg,ico}`,
+    images: `${SRC_PATH}/img/*.*`,
     icons: `${SRC_PATH}/img/icons/*.svg`,
   },
   dist: `${DIST_PATH}`,
@@ -88,7 +88,7 @@ task("clean", () => {
   return src(path.dist, {
     read: false,
     allowEmpty: true,
-  }).pipe(rm());
+  }).pipe(clean());
 });
 
 task("copy:html", () => {
@@ -103,7 +103,9 @@ task("copy:html", () => {
 });
 
 task("pug", () => {
-  return src(path.src.pug, { ignore: "./**/common/*.pug" })
+  return src(path.src.pug, {
+    ignore: ["./**/common/*.pug", "./**/components/*.pug"],
+  })
     .pipe(plumber())
     .pipe(pug({ pretty: true }))
     .pipe(dest(path.build.html))
