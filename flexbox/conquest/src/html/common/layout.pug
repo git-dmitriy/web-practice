@@ -1,0 +1,97 @@
+block variables
+
+<!DOCTYPE html>
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title= pageTitle
+    if mainPage
+      link(rel="stylesheet" href="./css/main.css")
+      script(src="./js/main.js")
+    else
+      link(rel="stylesheet" href="../css/main.css")
+      script(src="./js/main.js")
+  body 
+    header.main-header
+      .container
+        if mainPage
+          a.main-header__logo-link(href="") 
+            img.main-header__logo-img(src="./img/logo-header.svg" alt="")
+        else 
+          a.main-header__logo-link(href="") 
+            img.main-header__logo-img(src="../img/logo-header.svg" alt="")
+        nav.main-nav
+          ul.main-nav__list
+            li.main-nav__item Каталог
+            li.main-nav__item Акции
+            li.main-nav__item Доставка
+            li.main-nav__item Контакты
+
+        ul.user-nav
+          li.user-nav__item
+            a.user-nav__link(href="")
+            if mainPage
+              img.user-nav__link-img(src="./img/search_icon.svg" alt="")
+            else
+              img.user-nav__link-img(src="../img/search_icon.svg" alt="")
+          li.user-nav__item
+            a.user-nav__link(href="")
+            if mainPage
+              img.user-nav__link-img(src="./img/favorite_icon.svg" alt="")
+            else
+              img.user-nav__link-img(src="../img/favorite_icon.svg" alt="")
+          li.user-nav__item
+            a.user-nav__link(href="")
+              if mainPage
+                img.user-nav__link-img(src="./img/search_icon.svg" alt="")
+              else
+                img.user-nav__link-img(src="../img/search_icon.svg" alt="")
+
+    main
+      block content
+
+    footer.main-footer
+      .container
+        .main-footer__logo-col
+          if mainPage
+            a.main-footer__logo-link(href="")
+              img.main-footer__logo-img(src="./img/logo-footer.svg" alt="Логотип")
+          else 
+            a.main-footer__logo-link(href="./")
+              img.main-footer__logo-img(src="../img/logo-footer.svg" alt="Логотип")
+          a.main-footer__link(href="tel:+74994504797") 8 (499) 450-47-97
+          a.main-footer__link(href="mail:info@conquest.watch.ru") info@conquest.watch.ru
+
+        dl.footer__sections-list
+          dt.main-footer__section-heading О компании
+            dd.main-footer__section 
+              a.main-footer__section-link(href="#") Наши магазины
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Вакансии
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Сертификаты
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Отзывы
+
+        dl.footer__sections-list
+          dt.main-footer__section-heading Покупателям
+            dd.main-footer__section 
+              a.main-footer__section-link(href="#") Каталог товаров
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Как заказать?
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") FAQ
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Корпоративным клиентам
+
+        dl.footer__sections-list
+          dt.main-footer__section-heading Оплата и доставка
+            dd.main-footer__section 
+              a.main-footer__section-link(href="#") Способы оплаты
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Время доставки
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Гарантия и ремонт
+            dd.main-footer__section
+              a.main-footer__section-link(href="#") Возврат и компенсация
