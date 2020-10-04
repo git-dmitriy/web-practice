@@ -1,0 +1,90 @@
+extends ./html/common/layout 
+
+block variables
+  - var pageTitle = 'Главная страница'
+  - var mainPage = true
+
+block content
+  section.promo-banner
+    .container  
+      .promo-banner__txt-col
+        h2.promo-banner__heading Весна/Лето 2019 #[br]Коллекция
+        p.promo-banner__desc Швейцарские часы в наличии в Москве #[br] и с доставкой по всему миру
+        a.button(href="#") Смотреть каталог
+      .promo-banner__img-wrap
+        img.promo-banner__img(href="./img/promo-banner.jpg")
+        p.promo-banner__price 22 000 ₽
+        p.promo-banner__watch-strap 28 мм диаметр
+
+  section.popular-models
+    .container  
+      header.section-header.popular-models__header
+        h2.section-heading Популярные модели
+        a.show-all Смотреть все
+      ul.product__list
+        li.product__item
+          h3.product__name  RADO
+          p.product__price  65 300 ₽
+          img.product__img(src="./img/rado.jpg" alt="Изображение часов")
+          a.produt__link(href="") Подробнее
+        li.product__item
+          h3.product__name  BVLGARI
+          p.product__price  81 700 ₽
+          img.product__img(src="./img/bvlgari.jpg" alt="Изображение часов")
+          a.produt__link(href="") Подробнее
+        li.product__item
+          h3.product__name  BVLGARI
+          p.product__price  72 000 ₽
+          img.product__img(src="./img/bvlgari_2.jpg" alt="Изображение часов")
+          a.produt__link(href="") Подробнее
+
+  section.features
+    h2.visually-hidden Наши Преимущества
+    .container.features__slider
+      ul.features__list
+        li.features__item
+          .features__img-wrap
+            img.features__img(src="./img/quality.jpg" alt="Декоративное изображение олицетворяющее преимущество")
+          .features__desc-wrap
+            h3.features__desc-heading Подлинное качество
+            p.features__desc.
+              Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы — это  предмет гордости и престижа.
+            a.button.button_light(href="#")
+        li.features__item
+          .features__img-wrap
+            img.features__img(src="./img/quality.jpg" alt="Декоративное изображение олицетворяющее преимущество")
+          .features__desc-wrap
+            h3.features__desc-heading Несомненные достоинства
+            p.features__desc.
+              Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы — это  предмет гордости и престижа.
+            a.button.button_light(href="#")
+        li.features__item
+          .features__img-wrap
+            img.features__img(src="./img/quality.jpg" alt="Декоративное изображение олицетворяющее преимущество")
+          .features__desc-wrap
+            h3.features__desc-heading Безупречные показатели
+            p.features__desc.
+              Все часы производятся в Швейцарии и имеют сертификаты качества. Настоящие швейцарские часы — это  предмет гордости и престижа.
+            a.button.button_light(href="#")
+      .slider__controls
+        .slider__prev <
+        .slider__marker 01
+        .slider__next >
+
+  section.section.follow-us 
+    .container
+      .follow-us__text-col
+        h2.section__heading Следите за нашими новостями
+        p.section__desc Подписывайтесь на #[b @conquest_watch] в соцсетях и узнавайте о новинках и акциях первыми.
+        ul.socials-list
+          li.socials-list__item
+            a.socials-list__link(href="#")
+              img.socials-list__img(src="" alt="")
+          li.socials-list__item
+            a.socials-list__link(href="#")
+              img.socials-list__img(src="" alt="")
+          li.socials-list__item
+            a.socials-list__link(href="#")
+              img.socials-list__img(src="" alt="")
+      .follow-us__img-wrap
+        img.follow-us__img(src="./img/socials.jpg" alt="Фотографии из соцсетей")
