@@ -40,11 +40,12 @@ html(lang="ru")
             else
               img.user-nav__link-img.user-nav__link-img_search(src="../img/search_icon.svg" alt="")
           li.user-nav__item
-            a.user-nav__link(href="")
-            if mainPage
-              img.user-nav__link-img.user-nav__link-img_favorite(src="./img/favorite_icon.svg" alt="")
-            else
-              img.user-nav__link-img.user-nav__link-img_favorite(src="../img/favorite_icon.svg" alt="")
+            a.user-nav__link.user-nav__index-wrap(href="")
+              span.user-nav__index 1
+              if mainPage
+                img.user-nav__link-img.user-nav__link-img_favorite(src="./img/favorite_icon.svg" alt="")
+              else
+                img.user-nav__link-img.user-nav__link-img_favorite(src="../img/favorite_icon.svg" alt="")
           li.user-nav__item
             a.user-nav__link(href="")
               if mainPage

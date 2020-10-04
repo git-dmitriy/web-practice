@@ -1,0 +1,73 @@
+.main-header {
+}
+
+.main-header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  min-height: 84px;
+  padding-top: 32px;
+}
+
+.main-header__logo-link {
+  margin-right: 265px;
+}
+.main-header__logo-img {
+  width: 105px;
+}
+
+.main-nav {
+}
+.main-nav__list {
+  display: flex;
+}
+.main-nav__item:not(:last-child) {
+  margin-right: 66px;
+}
+.main-nav__link {
+  @include font(14px, 16px, 400);
+  color: $dark_font;
+}
+
+.user-nav {
+  display: flex;
+  padding-top: 8px;
+  margin-left: auto;
+}
+.user-nav__item:not(:last-child) {
+  margin-right: 23px;
+}
+.user-nav__link {
+}
+.user-nav__link-img {
+}
+.user-nav__link-img_search {
+  width: 16px;
+}
+.user-nav__link-img_favorite {
+  width: 19px;
+}
+
+.user-nav__link-img_favorite::after {
+}
+
+.user-nav__index-wrap {
+  position: relative;
+}
+
+.user-nav__index {
+  position: absolute;
+  top: -4px;
+  right: -7px;
+  width: 13px;
+  height: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: $index_color;
+  @include font(8px, 8px, 400);
+  color: $dark_font;
+}
+.user-nav__link-img_cart {
+  width: 18px;
+}
