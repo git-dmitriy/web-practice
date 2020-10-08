@@ -1,10 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", "Arial", sans-serif;
+  font-family: $default-font;
   font-weight: normal;
   font-size: $root-font-size;
-
   color: $dark_font;
 }
 
