@@ -1,0 +1,6 @@
+.section-header {
+}
+.section-heading {
+  @include font(32px, 42px, 400, "Playfair Display");
+  color: $dark-font;
+}
