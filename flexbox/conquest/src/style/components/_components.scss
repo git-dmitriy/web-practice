@@ -4,3 +4,33 @@
   @include font(32px, 42px, 400, "Playfair Display");
   color: $dark-font;
 }
+
+.product__list {
+  display: flex;
+}
+.product__item {
+  max-width: 370px;
+  // min-height: 467px;
+  padding: 40px 0;
+}
+.product__name {
+  @include font(14px, 14px, 700, "Playfair Display");
+}
+.product__price {
+  @include font(12px, 16px, 400);
+}
+.product__img-wrap {
+  width: 313px;
+}
+.product__link {
+  @include font(16px, 21px, 700, "Playfair Display");
+  position: relative;
+  &::before {
+    // position: absolute;
+    display: inline-block;
+    content: '';
+    width: 30px;
+    height: 1px;
+    background-color: $dark-font;
+  }
+}
